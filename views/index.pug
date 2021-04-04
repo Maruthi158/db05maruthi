@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Lab10 repository from Priyanka Maruthi repository
+  button(type="button",class="btn-btn-success",onclick="update()") PRESS ME
+  <br/>
+  div(id="target") text of display
+  a(href='/compartment') Link to compartment page
+   
+  script. 
+
+   var client_count=0;
+     function update() {
+       client_count++;
+       document.getElementById("target").innerHTML=`Value now ${client_count}`;
+     }

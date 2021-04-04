@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p The number of rows are #{query.rows} and columns number of columns  are #{query.cols}
+    -
+        rows= Number(query.rows)
+        cols= Number(query.cols)
+    if !Number.isInteger(rows)
+        p The given rows are not appropriate 
+    else if !Number.isInteger(cols)
+        p The given column are not  appropriate 
+    else if rows < 0 || rows > 5
+        p given rows not in the range 1 to 4
+    else if cols < 0 || cols > 5
+        p given column not in the range 1 to 4 
+    else
+       table           
+            - for(let i=0; i<rows; i++) {
+               tr
+                 - for(let j=i; j<cols+i; j++) {
+                     td= j 
+                 -}              
+            - }
+  

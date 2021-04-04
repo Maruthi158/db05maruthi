@@ -1,0 +1,35 @@
+extends layout
+
+block content
+ h1= title
+ div(class="container-fluid")
+        div(class="row")
+            -
+                let compartment = [
+                    {
+                        "compartment_name": "B",
+                        "compartment_ID": "1",
+                        "compartment_type": "AC"
+                    },
+                    {
+                        "compartment_name": "C",
+                        "compartment_ID": "2",
+                        "compartment_type": "Non-AC"
+                    },
+                    {
+                        "compartment_name": "D",
+                        "compartment_ID": "3",
+                        "compartment_type": "Sleeper"
+                    },                    
+                ]
+            each list,index in compartment
+                div(class="col-sm-2" onclick=`buy(${index})`) #{list.compartment_name}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{list.compartment_ID}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{list.compartment_type}
+
+        script.
+     
+         function buy(itemNo)
+         {
+         alert(`You purchased Item ${itemNo+1}`)
+         }
