@@ -1,9 +1,7 @@
 var express = require('express');
+const compartment_controlers= require('../controllers/compartment');
 var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('compartment', { title: 'search results compartment' });
-});
+/* GET costumes */
+router.get('/', compartment_controlers.compartment_view_all_Page );
 
 module.exports = router;

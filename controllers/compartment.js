@@ -27,3 +27,15 @@ exports.compartment_delete = function (req, res) {
 exports.compartment_update_put = function (req, res) {
     res.send('NOT IMPLEMENTED: Compartment update PUT' + req.params.id);
 };
+
+// VIEWS
+// Handle a show all view
+exports.compartment_view_all_Page = async function(req, res) {
+    try{
+    thecompartment = await compartment.find();
+    res.render('compartment', { title: 'compartment Search Results', results: thecompartment });
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    }
+    };
