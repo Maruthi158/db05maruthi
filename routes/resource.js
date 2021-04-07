@@ -8,13 +8,13 @@ var compartment_controller = require('../controllers/compartment');
 router.get('/', api_controller.api);
 /// COSTUME ROUTES ///
 // POST request for creating a Costume.
-router.post('/compartments', compartment_controller.compartment_create_post);
+router.post('/compartment', compartment_controller.compartment_create_post);
 // DELETE request to delete Costume.
-router.delete('/compartments/:id', compartment_controller.compartment_delete);
+router.delete('/compartment/:id', compartment_controller.compartment_delete);
 // PUT request to update Costume.
-router.put('/compartments/:id', compartment_controller.compartment_update_put);
+router.put('/compartment/:id', compartment_controller.compartment_update_put);
 // GET request for one Costume.
-router.get('/compartments/:id', compartment_controller.compartment_detail);
+router.get('/compartment/:id', compartment_controller.compartment_detail);
 // GET request for list of all Costume items.
-router.get('/compartments', compartment_controller.compartment_list);
+router.get('/compartment', compartment_controller.compartment_list);
 module.exports = router;
