@@ -33,7 +33,22 @@ exports.compartment_delete = function (req, res) {
     res.send('NOT IMPLEMENTED: Compartment delete DELETE ' + req.params.id);
 };
 // Handle Compartment update form on PUT.
-exports.compartment_update_put = function (req, res) {
+exports.compartment_update_put = async function (req, res) {
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
+    try {
+        let toUpdate = await compartment.findById( req.params.id)
+        // Do updates of properties
+        if(req.body.compartment_name) toUpdate.compartment_name = req.body.compartment_name;
+        if(req.body.compartment_ID) toUpdate.compartment_ID = req.body.compartment_ID;
+        if(req.body.compartment_type) toUpdate.compartment_type = req.body.compartment_type;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
+    }
+
     res.send('NOT IMPLEMENTED: Compartment update PUT' + req.params.id);
 };
 
