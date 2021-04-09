@@ -12,11 +12,20 @@ exports.compartment_list = async function (req, res) {
     res.send('NOT IMPLEMENTED: Compartment list');
 };
 // for a specific Compartment.
-exports.compartment_detail = function (req, res) {
+exports.compartment_detail = async function (req, res) {
+    console.log("detail"  + req.params.id)
+    try {
+        result = await compartment.findById( req.params.id)
+        res.send(result)
+    } catch (error) {
+        res.status(500)
+        res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+
     res.send('NOT IMPLEMENTED: Compartment detail: ' + req.params.id);
 };
 // Handle Compartment create on POST.
-exports.compartment_create_post = function (req, res) {
+exports.compartment_create_post = async function (req, res) {
     res.send('NOT IMPLEMENTED: Compartment create POST');
 };
 // Handle Compartment delete form on DELETE.
