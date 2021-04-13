@@ -6,3 +6,5 @@ router.get('/', compartment_controlers.compartment_view_all_Page );
 
 module.exports = router;
 router.get('/detail', compartment_controlers.compartment_view_one_Page);
+/* GET create compartment page */
+router.get('/create', compartment_controlers.compartment_create_Page);
