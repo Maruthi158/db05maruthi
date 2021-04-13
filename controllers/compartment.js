@@ -119,3 +119,17 @@ exports.compartment_create_Page =  function(req, res) {
     }
 };
 
+// Handle building the view for updating a compartment.
+// query provides the id
+exports.compartment_update_Page =  async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+        let result = await compartment.findById(req.query.id)
+        res.render('compartmentupdate', { title: 'compartment Update', toShow: result });
+    }
+    catch(err){
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+

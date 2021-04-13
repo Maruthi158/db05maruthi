@@ -8,3 +8,5 @@ module.exports = router;
 router.get('/detail', compartment_controlers.compartment_view_one_Page);
 /* GET create compartment page */
 router.get('/create', compartment_controlers.compartment_create_Page);
+/* GET create update page */
+router.get('/update', compartment_controlers.compartment_update_Page);
