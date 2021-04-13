@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+
+  - let compartmentid = toShow._id
+  - let compartmentname = toShow.compartment_name
+  - let compartmentID1  = toShow.compartment_ID
+  - let compartmenttype = toShow.compartment_type
+
+  div
+    div.row
+      div(class='compartmentAttr mr-3') compartment ID is:
+      div #{compartmentid}
+    div.row
+      div(class='compartmentAttr mr-3') compartment name is:
+      div #{compartmentname}
+    div.row
+      div(class='compartmentAttr mr-3') compartment ID1 is:
+      div #{compartmentID1}
+    div.row
+      div(class='compartmentAttr mr-3') compartment type is:
+      div #{compartmenttype}

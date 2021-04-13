@@ -5,3 +5,4 @@ var router = express.Router();
 router.get('/', compartment_controlers.compartment_view_all_Page );
 
 module.exports = router;
+router.get('/detail', compartment_controlers.compartment_view_one_Page);

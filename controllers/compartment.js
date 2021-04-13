@@ -92,3 +92,16 @@ exports.compartment_create_post = async function (req, res) {
         res.error(500, `{"error": ${err}}`);
     }
 };
+// Handle a show one view with id specified by query
+exports.compartment_view_one_Page = async function(req, res) {
+    console.log("single view for id "  + req.query.id)
+    try{
+        result = await compartment.findById( req.query.id)
+        res.render('compartmentdetail', 
+{ title: 'compartment Detail', toShow: result });
+    }
+    catch(err){
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
