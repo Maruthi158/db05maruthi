@@ -29,7 +29,16 @@ exports.compartment_create_post = async function (req, res) {
     res.send('NOT IMPLEMENTED: Compartment create POST');
 };
 // Handle Compartment delete form on DELETE.
-exports.compartment_delete = function (req, res) {
+exports.compartment_delete = async function (req, res) {
+    try {
+        result = await compartment.findByIdAndDelete( req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
+
     res.send('NOT IMPLEMENTED: Compartment delete DELETE ' + req.params.id);
 };
 // Handle Compartment update form on PUT.
