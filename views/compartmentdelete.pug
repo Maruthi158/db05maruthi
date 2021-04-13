@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    h1= title
+
+    - let compartmentid   = toShow._id
+    - let compartmentname = toShow.compartment_name
+    - let compartmentID1  = toShow.compartment_ID
+    - let compartmenttype = toShow.compartment_type
+
+    div
+        div.row
+            div(class='compartmentAttr mr-3') Compartment ID is:
+            div(id="compartmentid") #{compartmentid}
+        div.row
+            div(class='compartmentAttr mr-3') Compartment Name is:
+             div #{compartmentname}
+        div.row
+            div(class='compartmentAttr mr-3') Compartment ID is:
+             div #{compartmentID1}
+        div.row
+            div(class='compartmentAttr mr-3') Compartment type  is:
+            div #{compartmenttype}
+        div.row
+            button(class='btn btn-danger btn-md m-auto'  type="Submit" onclick=`deletecompartment()`) Delete
+
+    script.
+        function deletecompartment() {
+            let value=document.getElementById("compartmentid").innerHTML;
+            console.log(value)
+            // TODO do something here to show user that form is being submitted
+            fetch('/resource/compartment/' + value, {
+                method: 'DELETE'
+            }).then((resp) => {
+                return resp.json(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+                alert("Delete succeded")
+                 // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Delete failed " + error )
+            });
+        };
