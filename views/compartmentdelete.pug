@@ -10,19 +10,26 @@ block content
 
     div
         div.row
-            div(class='compartmentAttr mr-3') Compartment ID is:
+            div(class='compartmentAttr mr-4') Compartment ID is:
             div(id="compartmentid") #{compartmentid}
         div.row
-            div(class='compartmentAttr mr-3') Compartment Name is:
-             div #{compartmentname}
+            div(class='compartmentAttr mr-4') Compartment Name is:
+            div #{compartmentname}
         div.row
-            div(class='compartmentAttr mr-3') Compartment ID is:
-             div #{compartmentID1}
+            div(class='compartmentAttr mr-4') Compartment ID is:
+            div #{compartmentID1}
         div.row
-            div(class='compartmentAttr mr-3') Compartment type  is:
+            div(class='compartmentAttr mr-4') Compartment type  is:
             div #{compartmenttype}
-        div.row
-            button(class='btn btn-danger btn-md m-auto'  type="Submit" onclick=`deletecompartment()`) Delete
+
+        button(class='btn btn-danger btn-md m-auto'  type="Submit" onclick=`deletecompartment()`) Delete
+        button(class="btn btn-secondary m-2" onclick="cancel()") Cancel  
+    
+    script.
+        function cancel() {   
+            // Go back to the home page for the costume collection     
+            window.location.href='/compartment'   
+        }
 
     script.
         function deletecompartment() {
