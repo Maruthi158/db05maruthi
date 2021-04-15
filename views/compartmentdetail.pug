@@ -1,7 +1,10 @@
 extends layout
 
 block content
-  h1= title
+  h2(id="newtitle")= title
+
+  if (toShow == null)
+    h3 No instance to delete
 
   - let compartmentid = toShow._id
   - let compartmentname = toShow.compartment_name

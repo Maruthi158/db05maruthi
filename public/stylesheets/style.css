@@ -7,7 +7,29 @@ a {
   color: #00B7FF;
 }
 .compartmentAttr {
-  background-color: aquamarine;
-  width: 120px;
+  background-color: rgb(65, 42, 165);
+  width: 180px;
+  margin: 6px;
+  text-align: center;
+  color: rgb(31, 156, 83);
+  padding: 9px;
+  border-radius: 7px;
+  font-weight: bolder;
+  
 }
 
+.cAttr{
+  margin-right: 3px;
+  margin-bottom: 0;
+  padding: 9px;
+  justify-content:center;
+  font-weight: bold;
+  border-bottom: 2px solid rgb(150, 6, 13);
+  border-left: 2px solid  rgb(179, 13, 63);
+  background-color: rgb(4, 34, 34);
+  border-radius: 2px;
+}
+.specialstyles{
+    border-top: 2px solid rgb(108, 68, 218);
+    width: 70%;
+}
