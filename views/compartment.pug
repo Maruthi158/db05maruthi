@@ -1,20 +1,18 @@
 extends layout
 
 block content
- h1= title
- div(class="container-fluid")
-        div(class="row")
-            -
-                let compartment = results;
-                   
-            each list,index in compartment
-                div(class="col-sm-2" onclick=`buy(${index})`) #{list.compartment_name}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{list.compartment_ID}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{list.compartment_type}
+  h1= title
+  - let compartment=results;
+  div(class="container-fluid mt-3")
+   div(class="row m-1")
+    each form in compartment
+     - let destination=`buy(\"/compartment/update?id=${form._id}\")`
+     div(class="col-sm-6 bg-warning m-1 p-3") compartment #{form.compartment_name} - #{form.compartment_ID} - #{form.compartment_type}
+      button.btn( class="btn-primary ml-2", onclick=destination ) Update
+  
+   script.
+    function buy(path){
+        window.location.href=path
 
-        script.
-     
-         function buy(itemNo)
-         {
-         alert(`You purchased Item ${itemNo+1}`)
-         }
+        //alert(`You purchased Item ${a+1}`)
+      }
