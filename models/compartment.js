@@ -7,7 +7,10 @@ const compartmentSchema = mongoose.Schema({
         min:[1,"Minimum"],
         max:[12,"Maximum"]
     },
-    compartment_type: String
+    compartment_type: {
+        type: String,
+        minimumLength: 5
+    }
 });
 
 module.exports = mongoose.model("Compartment", compartmentSchema)
