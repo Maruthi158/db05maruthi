@@ -1,14 +1,20 @@
 extends layout
 
 block content
+ - let create = `dispatch(\"compartment/create\")`
+  button.btn(class="btn-success m1-1", onclick=create) Create
   h1= title
-  - let compartment=results;
+  - let compartment =results;
   div(class="container-fluid mt-3")
    div(class="row m-1")
-    each form in compartment
+    each form in compartment 
      - let destination=`buy(\"/compartment/update?id=${form._id}\")`
-     div(class="col-sm-6 bg-warning m-1 p-3") compartment #{form.compartment_name} - #{form.compartment_ID} - #{form.compartment_type}
+     - let detail=`buy(\"/compartment/detail?id=${form._id}\")`
+     - let del=`buy(\"/compartment/delete?id=${form._id}\")`
+     div(class="col-sm-6 bg-warning m-1 p-3") compartment  #{form.compartment_name} - #{form.compartment_ID} - #{form.compartment_type}
       button.btn( class="btn-primary ml-2", onclick=destination ) Update
+      button.btn( class="btn-dark ml-2", onclick=detail ) Get Detail
+      button.btn( class="btn-danger ml-2", onclick=del ) Delete
   
    script.
     function buy(path){
