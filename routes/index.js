@@ -3,10 +3,10 @@ var passport = require('passport');
 var router = express.Router();
 var Account = require('../models/account');
 router.get('/', function (req, res) {
- res.render('index', { title: 'House App', user : req.user });
+ res.render('index', { title: 'Compartment App', user : req.user });
 });
 router.get('/register', function(req, res) {
- res.render('register', { title: 'house App Registration'});
+ res.render('register', { title: 'compartment App Registration'});
 });
 router.post('/register', function(req, res) {
  Account.findOne({ username : req.body.username },
@@ -35,7 +35,7 @@ router.post('/register', function(req, res) {
  })
  })
 router.get('/login', function(req, res) {
- res.render('login', { title: 'house App Login', user : req.user });
+ res.render('login', { title: 'compartment App Login', user : req.user });
 });
 router.post('/login', passport.authenticate('local'), function(req, res) {
   if(req.session.returnTo)
